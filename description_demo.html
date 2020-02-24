@@ -213,7 +213,7 @@ function addLanguageRow() {
           <input type="radio" name="gender" value="other"> Other<br>
       </p>
     <p class='question-title'>What do you think the experiment is about? </p>
-        <textarea id="wasItFun" rows="4" cols="50"></textarea>
+        <textarea id="debrief" rows="4" cols="50"></textarea>
     </p>
 
     <h3 class='question-title'>What countries have you lived in?</h3>
@@ -2163,7 +2163,8 @@ function addLanguageRow() {
 
             <div class='col'>
                 <select class="form-control" required name='language_proficiency_1'>
-                    <option>5 - Native</option>
+                    <option>6 - Native</option>
+                    <option>5 - Native-like</option>
                     <option>4 - Fluent</option>
                     <option>3 - Conversational</option>
                     <option>2 - Intermediate</option>
@@ -3086,7 +3087,8 @@ function addLanguageRow() {
 
             <div class='col'>
                 <select class="form-control" required name='language_proficiency_1'>
-                    <option>5 - Native</option>
+                    <option>6 - Native</option>
+                    <option>5 - Native-like</option>
                     <option>4 - Fluent</option>
                     <option>3 - Conversational</option>
                     <option>2 - Intermediate</option>
@@ -3114,11 +3116,13 @@ function addLanguageRow() {
     
 
     <script>
+        var subjectId = "TFB" + Math.round(Math.random() * 10000) + "55";
     	$("#welcomeButton").on("click", ShowWelcome);
     	function ShowWelcome() {
     		$("#mobileOut").hide();
     		$("#welcome").show();
     	}
+
     	$("#consentButton").on("click", ShowConsent);
     	function ShowConsent() {
     		$("#welcome").hide();
@@ -3150,7 +3154,15 @@ function addLanguageRow() {
         $("#done").show();
         confetti.start(5000, 50, 150);
         }
-        
+
+        var subjectInfo = {
+          age: $('#age').val(),
+          gender: $('input[name=gender]:checked').val(),
+          debrief: $('#wasItFun').val()
+          //userAgent:  navigator.userAgent,
+          //trialList: trialList
+        };
+
     </script>
 
 
